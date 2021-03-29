@@ -1,18 +1,15 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
     "strict": true,
     "moduleResolution": "node",
     "noErrorTruncation": true,
     "esModuleInterop": true,
     "suppressImplicitAnyIndexErrors": true,
-    "sourceMap": true,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "./dist",
     "baseUrl": "./",
-    "outDir": "dist"
+    "outDir": "./dist"
   },
-  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,8 +1,8 @@
 {
   "name": "vuepress-plugin-google-adsense2",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "MIT",
-  "description": "VuePress 2 plugin - google-adsense",
+  "description": "VuePress 2 plugin - google-Adsense",
   "keywords": [
     "vuepress-plugin",
     "vuepress",
@@ -22,13 +22,18 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsc",
-    "release": "npm publish"
+    "build": "yarn clean && tsc --build tsconfig-cjs.json && tsc --build tsconfig-esm.json && yarn move",
+    "release": "npm publish",
+    "clean": "rimraf dist",
+    "move": "node ./scripts/index.js"
   },
   "dependencies": {
     "@vuepress/client": "^2.0.0-beta.6",
     "@vuepress/core": "^2.0.0-beta.6",
-    "@vuepress/utils": "^2.0.0-beta.5",
+    "@vuepress/utils": "^2.0.0-beta.5"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
     "typescript": "^4.2.3"
   }
 }
