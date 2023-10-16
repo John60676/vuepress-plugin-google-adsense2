@@ -1,16 +1,21 @@
-import type { Plugin } from '@vuepress/core'
-import { path } from '@vuepress/utils';
+import type { Plugin } from '@vuepress/core';
+import { path, getDirname } from '@vuepress/utils';
 
 export interface GoogleAdSensePluginOptions {
-  id: string
+  id: string;
 }
 
-const googleAdSensePlugin: Plugin<GoogleAdSensePluginOptions> = ({ id }) => ({
+const __dirname = getDirname(import.meta.url);
+
+export const googleAdSensePlugin = ({
+  id,
+}: GoogleAdSensePluginOptions): Plugin => ({
   name: 'vuepress-plugin-google-adsense2',
-  clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhanceFiles.js'),
+  clientConfigFile: path.resolve(__dirname, './clientAppEnhanceFiles.js'),
+
   define: {
     ADS_ID: id || false,
   },
 });
 
-export default googleAdSensePlugin
+export default googleAdSensePlugin;
